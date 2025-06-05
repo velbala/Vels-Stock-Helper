@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Covered Call Strike Calculator</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>Covered Call Calculator</h1>
+    <form id="calc-form">
+      <!-- Current Stock Price -->
+      <label for="stock-price">Current Stock Price:</label>
+      <input
+        type="number"
+        id="stock-price"
+        step="0.01"
+        placeholder="e.g. 10.15"
+        required
+      />
+
+      <!-- Strategy Selection -->
+      <fieldset>
+        <legend>Strategy:</legend>
+        <label>
+          <input
+            type="radio"
+            name="strategy"
+            value="bullish"
+            checked
+          />
+          Bullish ( +2.5% )
+        </label>
+        <label>
+          <input
+            type="radio"
+            name="strategy"
+            value="neutral"
+          />
+          Neutral ( 0% )
+        </label>
+        <label>
+          <input
+            type="radio"
+            name="strategy"
+            value="bearish"
+          />
+          Bearish ( −1.5% )
+        </label>
+        <label>
+          <input
+            type="radio"
+            name="strategy"
+            value="custom"
+          />
+          Custom %
+        </label>
+        <input
+          type="number"
+          id="custom-percent"
+          step="0.01"
+          placeholder="% ( e.g. 5 or −2 )"
+          disabled
+        />
+      </fieldset>
+
+      <!-- Number of Contracts -->
+      <label for="num-contracts">Number of Contracts:</label>
+      <input
+        type="number"
+        id="num-contracts"
+        min="1"
+        value="10"
+        required
+      />
+
+      <!-- Calculate Button -->
+      <button type="submit" id="calculate-btn">Calculate</button>
+    </form>
+
+    <!-- Output Area -->
+    <div id="output" aria-live="polite"></div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
